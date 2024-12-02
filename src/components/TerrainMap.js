@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-// Using a working public token
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+// Using user's Mapbox token
+mapboxgl.accessToken = 'pk.eyJ1IjoicHlybzEwIiwiYSI6ImNtNDZsNTBiaDBtNG0ya29qaHlhNnp4YnUifQ.TRy-AjoNmBiwT3fIZyMiEw';
 
 const MINE_LOCATION = {
     longitude: 120.4577531,
@@ -11,9 +11,9 @@ const MINE_LOCATION = {
 };
 
 const LAYER_STYLES = {
-    streets: 'mapbox://styles/mapbox/streets-v12',
-    satellite: 'mapbox://styles/mapbox/satellite-v9',
-    outdoors: 'mapbox://styles/mapbox/outdoors-v12'
+    satellite: 'mapbox://styles/mapbox/satellite-streets-v12',
+    terrain: 'mapbox://styles/mapbox/satellite-v9',
+    streets: 'mapbox://styles/mapbox/streets-v12'
 };
 
 const TerrainMap = () => {
@@ -33,7 +33,7 @@ const TerrainMap = () => {
             center: [MINE_LOCATION.longitude, MINE_LOCATION.latitude],
             zoom: 14,
             pitch: 60,
-            bearing: 0,
+            bearing: -45,
             antialias: true
         });
 
@@ -41,29 +41,33 @@ const TerrainMap = () => {
             setIsStyleLoaded(true);
 
             // Add terrain source
-            map.addSource('mapbox-dem', {
-                'type': 'raster-dem',
-                'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
-                'tileSize': 512,
-                'maxzoom': 14
-            });
+            if (!map.getSource('mapbox-dem')) {
+                map.addSource('mapbox-dem', {
+                    'type': 'raster-dem',
+                    'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+                    'tileSize': 512,
+                    'maxzoom': 14
+                });
+            }
 
-            // Add terrain layer
+            // Add 3D terrain
             map.setTerrain({
                 'source': 'mapbox-dem',
                 'exaggeration': terrainExaggeration
             });
 
             // Add sky layer
-            map.addLayer({
-                'id': 'sky',
-                'type': 'sky',
-                'paint': {
-                    'sky-type': 'atmosphere',
-                    'sky-atmosphere-sun': [0.0, 90.0],
-                    'sky-atmosphere-sun-intensity': 15
-                }
-            });
+            if (!map.getLayer('sky')) {
+                map.addLayer({
+                    'id': 'sky',
+                    'type': 'sky',
+                    'paint': {
+                        'sky-type': 'atmosphere',
+                        'sky-atmosphere-sun': [0.0, 90.0],
+                        'sky-atmosphere-sun-intensity': 15
+                    }
+                });
+            }
 
             // Get elevation data
             const query = `https://api.mapbox.com/v4/mapbox.terrain-rgb/${Math.floor(map.getZoom())}/${Math.floor(map.getCenter().lng)}/${Math.floor(map.getCenter().lat)}.pngraw?access_token=${mapboxgl.accessToken}`;

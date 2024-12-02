@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+# 3D Mining Location Visualization
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive 3D map visualization of an open-pit mining location in Australia, built with React and Mapbox GL JS.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+This project provides an interactive 3D visualization of a mining site located at:
+- Latitude: -29.1797867
+- Longitude: 120.4577531
 
-### `npm start`
+### Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **3D Terrain Visualization**
+   - Real-time terrain elevation data
+   - Adjustable terrain height (exaggeration slider)
+   - Multiple map style options
+   - Sky layer for enhanced 3D effect
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Interactive Controls**
+   - Pan and rotate map view
+   - Zoom functionality
+   - Layer style switcher
+   - Fullscreen mode
+   - Terrain height adjustment slider
 
-### `npm test`
+3. **Location Information**
+   - Red marker at mining location
+   - Popup with coordinates
+   - Real-time elevation display
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Map Styles
+- Satellite with street labels
+- Pure satellite view
+- Street view
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
+- Node.js (Latest LTS version)
+- A Mapbox account with access token
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
+```bash
+git clone [repository-url]
+```
 
-### `npm run eject`
+2. Install dependencies:
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Create a `.env` file in the root directory and add your Mapbox token:
+```
+REACT_APP_MAPBOX_TOKEN=your_mapbox_token_here
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Start the development server:
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Map Navigation**
+   - Click and drag to pan
+   - Right-click + drag to rotate view
+   - Scroll to zoom in/out
+   - Use the fullscreen button to expand
 
-## Learn More
+2. **Style Switching**
+   - Use radio buttons to switch between map styles
+   - Choose from satellite, terrain, or street views
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Terrain Adjustment**
+   - Use the slider to adjust terrain height
+   - Range from 0.5x to 3x exaggeration
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technical Stack
 
-### Code Splitting
+- **Frontend Framework**: React
+- **Mapping Library**: Mapbox GL JS
+- **Styling**: CSS
+- **Package Management**: npm
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Dependencies
 
-### Analyzing the Bundle Size
+- react: ^18.2.0
+- mapbox-gl: Latest version
+- Other React dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Project Structure
 
-### Making a Progressive Web App
+```
+3d-map/
+├── src/
+│   ├── components/
+│   │   └── TerrainMap.js    # Main map component
+│   ├── App.js
+│   └── index.js
+├── public/
+├── package.json
+└── README.md
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Future Enhancements
 
-### Advanced Configuration
+1. **Additional Features**
+   - Multi-layer geological analysis
+   - Historical imagery comparison
+   - Advanced measurement tools
+   - Custom overlay capabilities
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+2. **Performance Optimizations**
+   - Caching for elevation data
+   - Optimized terrain rendering
+   - Better error handling
 
-### Deployment
+3. **UI Improvements**
+   - More detailed geological information
+   - Enhanced navigation controls
+   - Custom styling options
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Browser Support
 
-### `npm run build` fails to minify
+Tested and working on:
+- Google Chrome (recommended)
+- Firefox
+- Edge
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Notes
+
+- The location is in a remote area of Australia
+- Terrain visualization quality depends on available elevation data
+- Performance may vary based on internet connection and device capabilities
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
+
