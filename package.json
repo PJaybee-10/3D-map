@@ -3,13 +3,45 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^7.1.0",
+    "@deck.gl/core": "^9.0.36",
+    "@deck.gl/geo-layers": "^9.0.36",
+    "@deck.gl/layers": "^9.0.36",
+    "@deck.gl/mesh-layers": "^9.0.36",
+    "@deck.gl/react": "^9.0.36",
+    "@mapbox/mapbox-gl-geocoder": "^5.0.3",
+    "@react-three/drei": "^9.119.0",
+    "@react-three/fiber": "^8.17.10",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "assert": "^2.1.0",
+    "axios": "^1.7.8",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "cesium": "^1.123.1",
+    "craco-cesium": "^1.2.0",
+    "crypto-browserify": "^3.12.1",
+    "d3-geo": "^3.1.1",
+    "file-loader": "^6.2.0",
+    "https-browserify": "^1.0.0",
+    "mapbox-gl": "^3.8.0",
+    "ol": "^10.3.0",
+    "path-browserify": "^1.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-simple-maps": "^3.0.0",
+    "resium": "^1.18.3",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "strip-pragma-loader": "^1.0.1",
+    "three": "^0.165.0",
+    "three-tile": "^0.6.2",
+    "url": "^0.11.4",
+    "util": "^0.12.5",
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.96.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +66,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.58.1",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^6.11.0",
+    "style-loader": "^3.3.4"
   }
 }
